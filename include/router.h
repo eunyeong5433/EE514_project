@@ -12,7 +12,10 @@ class router {
     router();
     void Cycle();
 
-    ~router();
+    ~router()
+    {
+        
+    }
 };
 
 #endif

@@ -15,7 +15,7 @@ int main(int argc, char *argv[])
     std::random_device rd;
     std::mt19937 gen(rd());
 
-    std::uniform_int_distribution<int> dis(0, 15);
+    std::uniform_int_distribution<int> dis(0, mesh_dim*mesh_dim-1);
 
     int **tasks = (int**)malloc(sizeof(int*) * transfer_num);
     
@@ -33,5 +33,5 @@ int main(int argc, char *argv[])
     //     printf("%d, %d\n", tasks[i][0], tasks[i][1]);
     // }
 
-    mesh Mesh(mesh_dim, tasks);
+    mesh Mesh(mesh_dim, tasks, transfer_num);
 }

@@ -75,7 +75,7 @@ void mesh::compute_route()
                 else break;
             }
         }
-        printf("for %d task\n", i);
+        printf("for %d task, route is \n", i);
         while (!this->route_array[i].route_by_task.empty())
         {
             std::cout << this->route_array[i].route_by_task.front() << " ";
@@ -84,10 +84,9 @@ void mesh::compute_route()
         std::cout << std::endl;
     }
 }
+
 void mesh::Cycle() // cycle level simulator
 {
-    // compute route -> need alogrithm, 좌우 방향 선, 상하 방향 후라고 가정 (can be changed)
-    // 우회 경로 아닌 것들에 대해서만 경로 새로 계산
 
     // check all route and find dead-lock (form ring)
     for (int i = 0; i < this->mesh_dim * this->mesh_dim; i++)

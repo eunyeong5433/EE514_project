@@ -11,6 +11,7 @@ int main(int argc, char *argv[])
 {
     int transfer_num = (unsigned)atoi(argv[1]);
     int mesh_dim = (unsigned)atoi(argv[2]);
+    int packet_length = (unsigned)atoi(argv[2]);
 
     std::random_device rd;
     std::mt19937 gen(rd());
@@ -28,10 +29,11 @@ int main(int argc, char *argv[])
 
     // check routes
 
-    // for (int i = 0; i < transfer_num; i ++)
-    // {
-    //     printf("%d, %d\n", tasks[i][0], tasks[i][1]);
-    // }
+    for (int i = 0; i < transfer_num; i ++)
+    {
+        printf("%d, %d\n", tasks[i][0], tasks[i][1]);
+    }
 
-    mesh Mesh(mesh_dim, tasks, transfer_num);
+    mesh Mesh(mesh_dim, tasks, transfer_num, packet_length);
+    Mesh.compute_route();
 }

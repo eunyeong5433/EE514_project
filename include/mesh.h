@@ -5,6 +5,7 @@
 
 #include "mesh.h"
 #include "router.h"
+#include "route.h"
 
 class mesh {
 
@@ -15,11 +16,15 @@ class mesh {
         int transfer_num;
 
         router *router_array; // router array
-        int **routes; // 다음 cycle에 지나갈 경로
-        int *current_node; // 현재 각 task별 위치        
+        int *current_node; // 현재 각 task별 위치       
+        int *detour; // 각 task별 우회 여부 
         int *end;
-        
-        mesh(int mesh_dim, int **tasks, int transfer_num);
+        int *total_latency;
+
+        route route_array[10];
+
+        mesh(int mesh_dim, int **tasks, int transfer_num, int packet_length);
+        void compute_route();
         void Cycle();
 
         ~mesh()

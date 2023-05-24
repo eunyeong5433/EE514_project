@@ -8,8 +8,13 @@
 class router {
 
     public: 
-
-    router();
+        int src;
+        int dst; // neighbor
+        int packet_length;
+        int remained_cycle;
+        int task_num;
+        
+    router(int src, int packet_length);
     void Cycle();
 
     ~router()
